@@ -1,6 +1,6 @@
 package com.greatlearning.entity;
 
-import java.util.Date;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -10,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-
 public class Tickets {
 	public Tickets() {
 		super();
@@ -25,8 +24,8 @@ public class Tickets {
    
    private String shortDescription;
    
-   @DateTimeFormat(pattern="dd/mm/yyyy")
-   private Date createdOn;
+   @DateTimeFormat(pattern="dd-MM-yyyy")
+   private String createdOn;
    
    private String content;
 
@@ -46,11 +45,11 @@ public void setShortDescription(String shortDescription) {
 	this.shortDescription = shortDescription;
 }
 
-public Date getCreatedOn() {
+public String getCreatedOn() {
 	return createdOn;
 }
 
-public void setCreatedOn(Date createdOn) {
+public void setCreatedOn(String createdOn) {
 	this.createdOn = createdOn;
 }
 
@@ -62,7 +61,7 @@ public void setContent(String content) {
 	this.content = content;
 }
 
-public Tickets(int id, String title, String shortDescription, Date createdOn, String content) {
+public Tickets(int id, String title, String shortDescription, String createdOn, String content) {
 	super();
 	this.id = id;
 	this.title = title;
@@ -75,5 +74,13 @@ public Tickets(int id, String title, String shortDescription, Date createdOn, St
 public String toString() {
 	return "Tickets [id=" + id + ", title=" + title + ", shortDescription=" + shortDescription + ", createdOn="
 			+ createdOn + ", content=" + content + "]";
+}
+
+public int getId() {
+	return id;
+}
+
+public void setId(int id) {
+	this.id = id;
 }
 }

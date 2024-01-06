@@ -1,0 +1,115 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>List of Tickets</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+        <a class="navbar-brand" href="/">Ticket Tracker Application</a>
+        <a class="navbar-brand" href="#">Tickets</a>
+          <a class="navbar-brand" href="#">New Ticket</a>      
+        
+    
+</nav>
+
+<div class ="container">
+ <div class="row">
+        <div class="col-md-8 mt-5">
+		<h4 style="text-align:center">List of Tickets</h4>
+		
+		<a th:href="@{/admin/tickets/newTicket}"
+		class="btn btn-primary btn-sm mb-3">
+		Create Ticket
+	</a>
+		<div class="row">
+		<form th:action="@{/admin/tickets/search}" method="get">
+  <input type="text" name="query" th:value="${query}"  placeholder="Find by Title & Short Description" size="50" >
+  <button type="submit" class="btn btn-info" >Search</button>
+  <button type="submit" class="btn btn-info" >Reset</button>
+  </form>
+		</div>
+<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+		<tr>
+		<th>#</th>
+		<th>Ticket Title</th>
+		<th>Ticket Short Description</th>
+		<th>Ticket Created On</th>
+		<th>Actions</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="tempTickets :${tickets}">
+		<td th:text="${tempTicketsStat.index+1}"></td>
+		<td th:text="${tempTickets.title}"></td>
+		<td th:text="${tempTickets.shortDescription}"></td>
+		<td th:text="${tempTickets.createdOn}"></td>
+		
+		<td>
+		<div class="row">
+				
+				
+					<div class="col-small">
+					<!-- Add "update" button/link -->
+					<form action="#" th:action="@{/admin/tickets/showFormEdit}" method="POST">
+					
+						<input type="hidden" name="ticketId" th:value="${tempTickets.id}" />						
+						<button type="submit" class="btn btn-info btn-sm mr-3 mr-1">Edit</button>
+
+					</form>
+					</div>
+					<div class="col-small">
+					<!-- Add "delete" button/link -->					
+					<form action="#" th:action="@{/admin/tickets/delete}" method="POST">
+					
+						<input type="hidden" name="ticketId" th:value="${tempTickets.id}" />						
+						<button type="submit" class="btn btn-danger btn-sm"
+								onclick="if (!(confirm('Are you sure you want to delete this ticket?'))) return false">
+								Delete
+						</button>
+
+					</form>
+					</div>
+				
+					<div class="col-small">
+					<!-- Add "update" button/link -->
+					<form action="#" th:action="@{/tickets/list}" method="POST">
+					
+						<input type="hidden" name="ticketId" th:value="${tempTickets.id}" />						
+						<button type="submit" class="btn btn-info btn-sm ml-3 mr-1">View</button>
+
+					</form>
+					</div>
+</div>
+
+			
+					
+					</td>
+					</tr>
+					</tbody>
+					</table>
+					</div>
+					<div class="container">
+					<footer class="text-center text-lg-start text-dark"
+          style="background-color: #ECEFF1">
+					<!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2);font-weight: bold;"
+         >
+      © 2023 Copyright GreatLearning All right reserved
+     
+      
+    </div>
+	</footer>
+					</div>
+					
+		</body>
+		
+
+</html>

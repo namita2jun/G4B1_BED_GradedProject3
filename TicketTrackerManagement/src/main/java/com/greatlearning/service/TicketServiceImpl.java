@@ -3,10 +3,12 @@ package com.greatlearning.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.greatlearning.dao.TicketsRepository;
 import com.greatlearning.entity.Tickets;
 
+@Service
 public class TicketServiceImpl implements TicketService {
 	
 	@Autowired

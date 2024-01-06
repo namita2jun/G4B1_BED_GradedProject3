@@ -13,7 +13,7 @@ import com.greatlearning.entity.Tickets;
 public interface TicketsRepository  extends JpaRepository<Tickets, Integer>{
 	
 	 //Custom query
-	 @Query(value = "select * from Tickets t where t.title like %:query% or t.shortDescription like %:query%", nativeQuery = true)
+	 @Query(value = "select * from Tickets t where t.title like %:query% or t.short_description like %:query%", nativeQuery = true)
 	 List<Tickets> findByKeyword(@Param("query") String query);
 	}
 
