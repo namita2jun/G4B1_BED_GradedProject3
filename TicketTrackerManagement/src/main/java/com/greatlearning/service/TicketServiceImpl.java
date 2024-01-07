@@ -29,7 +29,8 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public Tickets findById(int id) {
 		// TODO Auto-generated method stub
-		return ticketsRepository.findById(id).get();
+		return ticketsRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Invalid ticket Id:" + id));
 	}
 
 	@Override

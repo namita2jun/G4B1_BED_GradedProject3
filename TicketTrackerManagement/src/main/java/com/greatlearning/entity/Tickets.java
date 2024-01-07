@@ -1,7 +1,5 @@
 package com.greatlearning.entity;
 
-
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
@@ -18,69 +16,69 @@ public class Tickets {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int id;
-   
-   private String title;
-   
-   private String shortDescription;
-   
-   @DateTimeFormat(pattern="dd-MM-yyyy")
-   private String createdOn;
-   
-   private String content;
+	private int id;
 
-public String getTitle() {
-	return title;
-}
+	private String title;
 
-public void setTitle(String title) {
-	this.title = title;
-}
+	private String shortDescription;
 
-public String getShortDescription() {
-	return shortDescription;
-}
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private String createdOn;
 
-public void setShortDescription(String shortDescription) {
-	this.shortDescription = shortDescription;
-}
+	private String content;
 
-public String getCreatedOn() {
-	return createdOn;
-}
+	public String getTitle() {
+		return title;
+	}
 
-public void setCreatedOn(String createdOn) {
-	this.createdOn = createdOn;
-}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-public String getContent() {
-	return content;
-}
+	public String getShortDescription() {
+		return shortDescription;
+	}
 
-public void setContent(String content) {
-	this.content = content;
-}
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
 
-public Tickets(int id, String title, String shortDescription, String createdOn, String content) {
-	super();
-	this.id = id;
-	this.title = title;
-	this.shortDescription = shortDescription;
-	this.createdOn = createdOn;
-	this.content = content;
-}
+	public String getCreatedOn() {
+		return createdOn;
+	}
 
-@Override
-public String toString() {
-	return "Tickets [id=" + id + ", title=" + title + ", shortDescription=" + shortDescription + ", createdOn="
-			+ createdOn + ", content=" + content + "]";
-}
+	public void setCreatedOn(String createdOn) {
+		this.createdOn = createdOn;
+	}
 
-public int getId() {
-	return id;
-}
+	public String getContent() {
+		return content;
+	}
 
-public void setId(int id) {
-	this.id = id;
-}
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Tickets(int id, String title, String shortDescription, String createdOn, String content) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.shortDescription = shortDescription;
+		this.createdOn = createdOn;
+		this.content = content;
+	}
+
+	@Override
+	public String toString() {
+		return "Tickets [id=" + id + ", title=" + title + ", shortDescription=" + shortDescription + ", createdOn="
+				+ createdOn + ", content=" + content + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }
